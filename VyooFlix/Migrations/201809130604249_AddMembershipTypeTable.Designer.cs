@@ -7,13 +7,13 @@ namespace VyooFlix.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddIsSubscribedToCustomer : IMigrationMetadata
+    public sealed partial class AddMembershipTypeTable : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddIsSubscribedToCustomer));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddMembershipTypeTable));
         
         string IMigrationMetadata.Id
         {
-            get { return "201807161536555_AddIsSubscribedToCustomer"; }
+            get { return "201809130604249_AddMembershipTypeTable"; }
         }
         
         string IMigrationMetadata.Source

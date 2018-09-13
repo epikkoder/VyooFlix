@@ -211,9 +211,13 @@
     <Compile Include="Migrations\201807020455046_InitialModel.Designer.cs">
       <DependentUpon>201807020455046_InitialModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807161536555_AddIsSubscribedToCustomer.cs" />
-    <Compile Include="Migrations\201807161536555_AddIsSubscribedToCustomer.Designer.cs">
-      <DependentUpon>201807161536555_AddIsSubscribedToCustomer.cs</DependentUpon>
+    <Compile Include="Migrations\201809130602040_AddIsSubscribedToNewsletter.cs" />
+    <Compile Include="Migrations\201809130602040_AddIsSubscribedToNewsletter.Designer.cs">
+      <DependentUpon>201809130602040_AddIsSubscribedToNewsletter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809130604249_AddMembershipTypeTable.cs" />
+    <Compile Include="Migrations\201809130604249_AddMembershipTypeTable.Designer.cs">
+      <DependentUpon>201809130604249_AddMembershipTypeTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -251,7 +255,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -314,8 +320,11 @@
     <EmbeddedResource Include="Migrations\201807020455046_InitialModel.resx">
       <DependentUpon>201807020455046_InitialModel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807161536555_AddIsSubscribedToCustomer.resx">
-      <DependentUpon>201807161536555_AddIsSubscribedToCustomer.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201809130602040_AddIsSubscribedToNewsletter.resx">
+      <DependentUpon>201809130602040_AddIsSubscribedToNewsletter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809130604249_AddMembershipTypeTable.resx">
+      <DependentUpon>201809130604249_AddMembershipTypeTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

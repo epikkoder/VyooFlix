@@ -3,7 +3,7 @@ namespace VyooFlix.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddIsSubscribedToCustomer : DbMigration
+    public partial class AddIsSubscribedToNewsletter : DbMigration
     {
         public override void Up()
         {
