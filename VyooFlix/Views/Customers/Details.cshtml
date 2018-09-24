@@ -1,10 +1,20 @@
 ﻿@model VyooFlix.Models.Customer
 @{
-    ViewBag.Title = @Model.Name;
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = @Model.Name;
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @if (Model != null)
 {
 	<h2>@Model.Name</h2>
+	<ul>
+		@if (@Model.MembershipTypeId > 0)
+		{
+			<li>Membership Type: @Model.MembershipType.Name</li>
+		}
+		@if (@Model.BirthDate != null)
+		{
+			<li>Birthdate: @Convert.ToDateTime(Model.BirthDate).ToShortDateString()</li>
+		}
+	</ul>
 }
