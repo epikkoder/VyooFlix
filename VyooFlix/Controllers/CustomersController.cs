@@ -20,6 +20,11 @@ namespace VyooFlix.Controllers
 		    _context.Dispose();
 	    }
 
+	    public ActionResult New()
+	    {
+		    return View();
+	    }
+
 	    // GET: Customers
         public ActionResult Index()
         {
