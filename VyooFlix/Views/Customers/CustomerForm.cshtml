@@ -1,10 +1,9 @@
 ﻿@model VyooFlix.ViewModels.CustomerFormViewModel
 @{
-	ViewBag.Title = "New";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>New Customer</h2>
+<h2>@ViewBag.Title</h2>
 
 @using (Html.BeginForm("Save", "Customers"))
 {

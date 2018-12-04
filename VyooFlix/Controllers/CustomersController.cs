@@ -29,6 +29,8 @@ namespace VyooFlix.Controllers
 			    MembershipTypes = membershipTypes
 		    };
 
+		    ViewBag.Title = "New Customer";
+
 		    return View("CustomerForm", viewModel);
 	    }
 
@@ -83,7 +85,9 @@ namespace VyooFlix.Controllers
 				MembershipTypes = _context.MembershipTypes.ToList()
 		    };
 
-		    return View("CustomerForm", viewModel);
+		    ViewBag.Title = "Edit Customer";
+
+			return View("CustomerForm", viewModel);
 	    }
     }
 }
