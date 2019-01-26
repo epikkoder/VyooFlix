@@ -31,25 +31,18 @@ namespace VyooFlix.Controllers
 			return View(movies);
 		}
 
-		//[Route("movies/released/{year}/{month:regex(\\d{2}):range(1, 12)}")]
-		//   public ActionResult ByReleaseDate(int year, int month)
-		//   {
-		//    return Content(year + "/" + month);
-		//   }
+	    public ActionResult New()
+	    {
+		    var genres = _context.Genres.ToList();
 
-	    //public ActionResult Details(int id)
-	    //{
-		   // Movie movie = null;
-		   // foreach (Movie m in movies)
-		   // {
-			  //  if (m.Id == id)
-				 //   movie = m;
-		   // }
+		    var viewModel = new MovieFormViewModel
+		    {
+			    Genres = genres
+		    };
 
-		   // if (movie == null)
-			  //  return HttpNotFound();
+		    ViewBag.Title = "New Movie";
 
-		   // return View(movie);
-	    //}
+		    return View("MovieForm", viewModel);
+	    }
 	}
 }

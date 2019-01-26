@@ -6,25 +6,31 @@
 
 <h2>Movies</h2>
 
-@if (Model.Count > 0)
-{
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Movie</th>
-			</tr>
-		</thead>
-		<tbody>
-			@foreach (var movie in Model)
-			{
+<div class="row">
+	@Html.ActionLink("New Movie", "New", "Movies", null, new { @class = "btn btn-primary" })
+</div>
+
+<div class="row">
+	@if (Model.Count > 0)
+	{
+		<table class="table">
+			<thead>
 				<tr>
-					<td>@Html.ActionLink(movie.Name, "Details", "Movies", new { id = movie.Id }, null)</td>
+					<th>Movie</th>
 				</tr>
-			}
-		</tbody>
-	</table>
-}
-else
-{
-	<text>We don't have any movies yet.</text>
-}
+			</thead>
+			<tbody>
+				@foreach (var movie in Model)
+				{
+					<tr>
+						<td>@Html.ActionLink(movie.Name, "Details", "Movies", new { id = movie.Id }, null)</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	}
+	else
+	{
+		<text>We don't have any movies yet.</text>
+	}
+</div>
