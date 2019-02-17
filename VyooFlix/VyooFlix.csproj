@@ -255,6 +255,14 @@
     <Compile Include="Migrations\201902160647502_AddedReleaseDateToMovies.Designer.cs">
       <DependentUpon>201902160647502_AddedReleaseDateToMovies.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902162337308_AddedNumInStockToMovies.cs" />
+    <Compile Include="Migrations\201902162337308_AddedNumInStockToMovies.Designer.cs">
+      <DependentUpon>201902162337308_AddedNumInStockToMovies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902170004297_PopulateGenres.cs" />
+    <Compile Include="Migrations\201902170004297_PopulateGenres.Designer.cs">
+      <DependentUpon>201902170004297_PopulateGenres.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -393,6 +401,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902160647502_AddedReleaseDateToMovies.resx">
       <DependentUpon>201902160647502_AddedReleaseDateToMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902162337308_AddedNumInStockToMovies.resx">
+      <DependentUpon>201902162337308_AddedNumInStockToMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902170004297_PopulateGenres.resx">
+      <DependentUpon>201902170004297_PopulateGenres.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

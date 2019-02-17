@@ -33,7 +33,7 @@ namespace VyooFlix.Controllers
 
 	    public ActionResult New()
 	    {
-		    var genres = _context.Genres.ToList();
+		    var genres = _context.Genres.OrderBy(g => g.Name).ToList();
 
 		    var viewModel = new MovieFormViewModel
 		    {
