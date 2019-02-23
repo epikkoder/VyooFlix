@@ -44,5 +44,25 @@ namespace VyooFlix.Controllers
 
 		    return View("MovieForm", viewModel);
 	    }
+
+	    public ActionResult Save(Movie movie)
+	    {
+		    if (movie.Id == 0)
+			    _context.Movies.Add(movie);
+		    else
+		    {
+			    var movieInDb = _context.Movies.Single(m => m.Id == movie.Id);
+
+			    movieInDb.Id = movie.Id;
+			    movieInDb.GenreId = movie.GenreId;
+			    movieInDb.Name = movie.Name;
+			    movieInDb.NumInStock = movie.NumInStock;
+			    movieInDb.ReleaseDate = movie.ReleaseDate;
+		    }
+
+		    _context.SaveChanges();
+
+		    return RedirectToAction("Index", "Movies");
+	    }
 	}
 }
