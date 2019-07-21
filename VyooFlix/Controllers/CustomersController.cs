@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using VyooFlix.Models;
@@ -7,36 +6,36 @@ using VyooFlix.ViewModels;
 
 namespace VyooFlix.Controllers
 {
-    public class CustomersController : Controller
-    {
-	    private ApplicationDbContext _context;
+	public class CustomersController : Controller
+	{
+		private ApplicationDbContext _context;
 
-	    public CustomersController()
-	    {
-		    _context = new ApplicationDbContext();
-	    }
+		public CustomersController()
+		{
+			_context = new ApplicationDbContext();
+		}
 
-	    protected override void Dispose(bool disposing)
-	    {
-		    _context.Dispose();
-	    }
+		protected override void Dispose(bool disposing)
+		{
+			_context.Dispose();
+		}
 
-	    public ActionResult New()
-	    {
-		    var membershipTypes = _context.MembershipTypes.ToList();
-		    var viewModel = new CustomerFormViewModel
-		    {
+		public ActionResult New()
+		{
+			var membershipTypes = _context.MembershipTypes.ToList();
+			var viewModel = new CustomerFormViewModel
+			{
 				Customer = new Customer(),
-			    MembershipTypes = membershipTypes
-		    };
+				MembershipTypes = membershipTypes
+			};
 
-		    ViewBag.Title = "New Customer";
+			ViewBag.Title = "New Customer";
 
-		    return View("CustomerForm", viewModel);
-	    }
+			return View("CustomerForm", viewModel);
+		}
 
 		[HttpPost]
-	    public ActionResult Save(Customer customer)
+		public ActionResult Save(Customer customer)
 		{
 			if (!ModelState.IsValid)
 			{
@@ -66,40 +65,40 @@ namespace VyooFlix.Controllers
 			return RedirectToAction("Index", "Customers");
 		}
 
-	    // GET: Customers
-        public ActionResult Index()
-        {
-	        var customers = _context.Customers.Include(c => c.MembershipType).ToList();
+		// GET: Customers
+		public ActionResult Index()
+		{
+			var customers = _context.Customers.Include(c => c.MembershipType).ToList();
 
-            return View(customers);
-        }
+			return View(customers);
+		}
 
-	    public ActionResult Details(int id)
-	    {
-		    var customer = _context.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id);
+		public ActionResult Details(int id)
+		{
+			var customer = _context.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id);
 
-		    if (customer == null)
-			    return HttpNotFound();
+			if (customer == null)
+				return HttpNotFound();
 
-		    return View(customer);
-	    }
+			return View(customer);
+		}
 
-	    public ActionResult Edit(int id)
-	    {
-		    var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+		public ActionResult Edit(int id)
+		{
+			var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
 
-		    if (customer == null)
-			    return HttpNotFound();
+			if (customer == null)
+				return HttpNotFound();
 
-		    var viewModel = new CustomerFormViewModel
-		    {
+			var viewModel = new CustomerFormViewModel
+			{
 				Customer = customer,
 				MembershipTypes = _context.MembershipTypes.ToList()
-		    };
+			};
 
-		    ViewBag.Title = "Edit Customer";
+			ViewBag.Title = "Edit Customer";
 
 			return View("CustomerForm", viewModel);
-	    }
-    }
+		}
+	}
 }
