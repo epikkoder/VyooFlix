@@ -262,6 +262,14 @@
     <Compile Include="Migrations\201902170004297_PopulateGenres.Designer.cs">
       <DependentUpon>201902170004297_PopulateGenres.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908050024231_Updated Genres model.cs" />
+    <Compile Include="Migrations\201908050024231_Updated Genres model.Designer.cs">
+      <DependentUpon>201908050024231_Updated Genres model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908050129149_Updated Movie model.cs" />
+    <Compile Include="Migrations\201908050129149_Updated Movie model.Designer.cs">
+      <DependentUpon>201908050129149_Updated Movie model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -407,6 +415,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902170004297_PopulateGenres.resx">
       <DependentUpon>201902170004297_PopulateGenres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908050024231_Updated Genres model.resx">
+      <DependentUpon>201908050024231_Updated Genres model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908050129149_Updated Movie model.resx">
+      <DependentUpon>201908050129149_Updated Movie model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

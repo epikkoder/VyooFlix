@@ -35,7 +35,7 @@ namespace VyooFlix.Controllers
 	    {
 		    var genres = _context.Genres.OrderBy(g => g.Name).ToList();
 
-		    var viewModel = new MovieFormViewModel
+		    var viewModel = new MovieFormViewModel()
 		    {
 			    Genres = genres
 		    };
@@ -47,6 +47,16 @@ namespace VyooFlix.Controllers
 
 	    public ActionResult Save(Movie movie)
 	    {
+		    if (!ModelState.IsValid)
+		    {
+			    var viewModel = new MovieFormViewModel(movie)
+			    {
+				    Genres = _context.Genres.ToList()
+			    };
+
+			    return View("MovieForm", viewModel);
+		    }
+
 		    if (movie.Id == 0)
 			    _context.Movies.Add(movie);
 		    else
@@ -74,9 +84,8 @@ namespace VyooFlix.Controllers
 			    return HttpNotFound();
 		    }
 
-		    var viewModel = new MovieFormViewModel
+		    var viewModel = new MovieFormViewModel(movie)
 		    {
-				Movie = movie,
 				Genres = _context.Genres.ToList()
 		    };
 
