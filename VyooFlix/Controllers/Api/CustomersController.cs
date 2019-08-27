@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using VyooFlix.Models;
 
 namespace VyooFlix.Controllers.Api
 {
-    public class CustomersController : ApiController
+	public class CustomersController : ApiController
     {
 	    private ApplicationDbContext _context;
 
@@ -33,5 +31,51 @@ namespace VyooFlix.Controllers.Api
 
 			return customer;
 		}
-    }
+
+		// POST /api/customers
+		[HttpPost]
+		public Customer CreateCustomer(Customer customer)
+		{
+			if (!ModelState.IsValid)
+				throw new HttpResponseException(HttpStatusCode.BadRequest);
+
+			_context.Customers.Add(customer);
+			_context.SaveChanges();
+
+			return customer;
+		}
+
+		// PUT /api/customers/1
+		[HttpPut]
+		public void UpdateCustomer(int id, Customer customer)
+		{
+			if (!ModelState.IsValid)
+				throw new HttpResponseException(HttpStatusCode.BadRequest);
+
+			var customerInDb = _context.Customers.SingleOrDefault(c => c.Id == id);
+
+			if (customerInDb == null)
+				throw new HttpResponseException(HttpStatusCode.NotFound);
+
+			customerInDb.Name = customer.Name;
+			customerInDb.BirthDate = customer.BirthDate;
+			customerInDb.MembershipTypeId = customer.MembershipTypeId;
+			customerInDb.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
+
+			_context.SaveChanges();
+		}
+
+		// DELETE /api/customers/1
+		[HttpDelete]
+		public void DeleteCustomer(int id)
+		{
+			var customerInDb = _context.Customers.SingleOrDefault(c => c.Id == id);
+
+			if (customerInDb == null)
+				throw new HttpResponseException(HttpStatusCode.NotFound);
+
+			_context.Customers.Remove(customerInDb);
+			_context.SaveChanges();
+		}
+	}
 }
