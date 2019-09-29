@@ -12,7 +12,8 @@ namespace VyooFlix.App_Start
 			CreateMap<CustomerDto, Customer>();
 
             CreateMap<Movie, MovieDto>();
-            CreateMap<MovieDto, Movie>();
-		}
+            CreateMap<MovieDto, Movie>()
+                .ForMember(m => m.Id, opt => opt.Ignore());
+        }
 	}
 }
