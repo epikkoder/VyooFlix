@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web.Http;
 using VyooFlix.App_Start;
 using VyooFlix.Dtos;
@@ -36,6 +38,52 @@ namespace VyooFlix.Controllers.Api
                 return NotFound();
 
             return Ok(_mapper.Map<Movie, MovieDto>(movie));
+        }
+
+        // POST /api/movies
+        [HttpPost]
+        public IHttpActionResult CreateMovie(MovieDto movieDto)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            var movie = _mapper.Map<MovieDto, Movie>(movieDto);
+            _context.Movies.Add(movie);
+            _context.SaveChanges();
+
+            movieDto.Id = movie.Id;
+
+            return Created(new Uri(Request.RequestUri + "/" + movie.Id), movieDto);
+        }
+
+        // PUT /api/movies/1
+        [HttpPut]
+        public void UpdateMovie(int id, MovieDto movieDto)
+        {
+            if (!ModelState.IsValid)
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
+
+            var movieInDb = _context.Movies.SingleOrDefault(c => c.Id == id);
+
+            if (movieInDb == null)
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+
+            _mapper.Map(movieDto, movieInDb);
+
+            _context.SaveChanges();
+        }
+
+        // DELETE /api/movies/1
+        [HttpDelete]
+        public void DeleteMovie(int id)
+        {
+            var movieInDb = _context.Movies.SingleOrDefault(c => c.Id == id);
+
+            if (movieInDb == null)
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+
+            _context.Movies.Remove(movieInDb);
+            _context.SaveChanges();
         }
     }
 }
