@@ -304,10 +304,23 @@
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-superhero.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\DataTables\dataTables.bootstrap.css" />
+    <Content Include="Content\DataTables\dataTables.bootstrap.min.css" />
+    <Content Include="Content\DataTables\dataTables.bootstrap4.css" />
+    <Content Include="Content\DataTables\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\dataTables.foundation.css" />
+    <Content Include="Content\DataTables\dataTables.foundation.min.css" />
+    <Content Include="Content\DataTables\dataTables.jqueryui.css" />
+    <Content Include="Content\DataTables\dataTables.jqueryui.min.css" />
+    <Content Include="Content\DataTables\dataTables.semanticui.css" />
+    <Content Include="Content\DataTables\dataTables.semanticui.min.css" />
+    <Content Include="Content\DataTables\jquery.dataTables.css" />
+    <Content Include="Content\DataTables\jquery.dataTables.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -332,6 +345,23 @@
     <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\images\sort_asc.png" />
+    <Content Include="Scripts\DataTables\images\sort_asc_disabled.png" />
+    <Content Include="Scripts\DataTables\images\sort_both.png" />
+    <Content Include="Scripts\DataTables\images\sort_desc.png" />
+    <Content Include="Scripts\DataTables\images\sort_desc_disabled.png" />
+    <Content Include="Scripts\DataTables\js\dataTables.bootstrap.js" />
+    <Content Include="Scripts\DataTables\js\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\js\dataTables.bootstrap4.js" />
+    <Content Include="Scripts\DataTables\js\dataTables.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables\js\dataTables.foundation.js" />
+    <Content Include="Scripts\DataTables\js\dataTables.foundation.min.js" />
+    <Content Include="Scripts\DataTables\js\dataTables.jqueryui.js" />
+    <Content Include="Scripts\DataTables\js\dataTables.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\js\dataTables.semanticui.js" />
+    <Content Include="Scripts\DataTables\js\dataTables.semanticui.min.js" />
+    <Content Include="Scripts\DataTables\js\jquery.dataTables.js" />
+    <Content Include="Scripts\DataTables\js\jquery.dataTables.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
