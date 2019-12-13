@@ -1,6 +1,6 @@
 ﻿namespace VyooFlix.Dtos
 {
-    public class MembershipTypeDto
+    public class GenreDto
     {
         public byte Id { get; set; }
 
