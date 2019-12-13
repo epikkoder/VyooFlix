@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using VyooFlix.Models;
 using VyooFlix.ViewModels;
@@ -11,87 +8,87 @@ namespace VyooFlix.Controllers
 {
     public class MoviesController : Controller
     {
-	    private ApplicationDbContext _context;
+        private ApplicationDbContext _context;
 
-	    public MoviesController()
-	    {
-		    _context = new ApplicationDbContext();
-	    }
+        public MoviesController()
+        {
+            _context = new ApplicationDbContext();
+        }
 
-	    protected override void Dispose(bool disposing)
-	    {
-			_context.Dispose();
-	    }
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
 
-		// GET: Movies/Index
-		public ActionResult Index()
-		{
-			var movies = _context.Movies.Include(m => m.Genre).ToList();
+        // GET: Movies/Index
+        public ActionResult Index()
+        {
+            var movies = _context.Movies.Include(m => m.Genre).ToList();
 
-			return View(movies);
-		}
+            return View(movies);
+        }
 
-	    public ActionResult New()
-	    {
-		    var genres = _context.Genres.OrderBy(g => g.Name).ToList();
+        public ActionResult New()
+        {
+            var genres = _context.Genres.OrderBy(g => g.Name).ToList();
 
-		    var viewModel = new MovieFormViewModel()
-		    {
-			    Genres = genres
-		    };
+            var viewModel = new MovieFormViewModel()
+            {
+                Genres = genres
+            };
 
-		    ViewBag.Title = "New Movie";
+            ViewBag.Title = "New Movie";
 
-		    return View("MovieForm", viewModel);
-	    }
+            return View("MovieForm", viewModel);
+        }
 
-	    public ActionResult Save(Movie movie)
-	    {
-		    if (!ModelState.IsValid)
-		    {
-			    var viewModel = new MovieFormViewModel(movie)
-			    {
-				    Genres = _context.Genres.ToList()
-			    };
+        public ActionResult Save(Movie movie)
+        {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new MovieFormViewModel(movie)
+                {
+                    Genres = _context.Genres.ToList()
+                };
 
-			    return View("MovieForm", viewModel);
-		    }
+                return View("MovieForm", viewModel);
+            }
 
-		    if (movie.Id == 0)
-			    _context.Movies.Add(movie);
-		    else
-		    {
-			    var movieInDb = _context.Movies.Single(m => m.Id == movie.Id);
+            if (movie.Id == 0)
+                _context.Movies.Add(movie);
+            else
+            {
+                var movieInDb = _context.Movies.Single(m => m.Id == movie.Id);
 
-			    movieInDb.Id = movie.Id;
-			    movieInDb.GenreId = movie.GenreId;
-			    movieInDb.Name = movie.Name;
-			    movieInDb.NumInStock = movie.NumInStock;
-			    movieInDb.ReleaseDate = movie.ReleaseDate;
-		    }
+                movieInDb.Id = movie.Id;
+                movieInDb.GenreId = movie.GenreId;
+                movieInDb.Name = movie.Name;
+                movieInDb.NumInStock = movie.NumInStock;
+                movieInDb.ReleaseDate = movie.ReleaseDate;
+            }
 
-		    _context.SaveChanges();
+            _context.SaveChanges();
 
-		    return RedirectToAction("Index", "Movies");
-	    }
+            return RedirectToAction("Index", "Movies");
+        }
 
-	    public ActionResult Edit(int id)
-	    {
-		    var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
+        public ActionResult Edit(int id)
+        {
+            var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
 
-		    if (movie == null)
-		    {
-			    return HttpNotFound();
-		    }
+            if (movie == null)
+            {
+                return HttpNotFound();
+            }
 
-		    var viewModel = new MovieFormViewModel(movie)
-		    {
-				Genres = _context.Genres.ToList()
-		    };
+            var viewModel = new MovieFormViewModel(movie)
+            {
+                Genres = _context.Genres.ToList()
+            };
 
-		    ViewBag.Title = "Edit Movie";
+            ViewBag.Title = "Edit Movie";
 
-		    return View("MovieForm", viewModel);
-	    }
-	}
+            return View("MovieForm", viewModel);
+        }
+    }
 }
