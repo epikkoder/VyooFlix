@@ -25,5 +25,7 @@ namespace VyooFlix.Models
 		[Required, Range(1, 20)]
 		[Display(Name = "Number in Stock")]
 		public byte NumInStock { get; set; }
-	}
+
+        public byte NumberAvailable { get; set; }
+    }
 }
