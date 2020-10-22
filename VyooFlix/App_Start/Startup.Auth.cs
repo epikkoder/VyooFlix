@@ -54,9 +54,9 @@ namespace VyooFlix
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "192859995407731",
+               appSecret: "679704fe60552ce93896221cb1f310a4");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{

@@ -12,7 +12,8 @@ namespace VyooFlix
                         "~/Scripts/bootstrap.js",
                         "~/Scripts/bootbox.js",
                         "~/Scripts/DataTables/js/jquery.dataTables.min.js",
-                        "~/Scripts/DataTables/js/dataTables.bootstrap.min.js"));
+                        "~/Scripts/DataTables/js/dataTables.bootstrap.min.js",
+                        "~/Scripts/typeahead.bundle.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -25,6 +26,7 @@ namespace VyooFlix
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-superhero.css",
                       "~/Content/DataTables/dataTables.bootstrap.min.css",
+                      "~/Content/typeahead.css",
                       "~/Content/site.css"));
         }
     }
